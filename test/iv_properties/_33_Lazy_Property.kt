@@ -19,6 +19,6 @@ class _33_Lazy_Property {
         lazyProperty.lazy
         lazyProperty.lazy
         assertEquals("Lazy property should be initialized once", 1, initialized)
-
+        assertEquals(42, lazyProperty.lazy)
     }
 }

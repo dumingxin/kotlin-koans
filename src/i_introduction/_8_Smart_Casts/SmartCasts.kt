@@ -14,11 +14,18 @@ fun eval(e: Expr): Int =
             else -> throw IllegalArgumentException("Unknown expression")
         }
 
-fun todoTask8(expr: Expr): Nothing = TODO(
-    """
-        Task 8.
-        Rewrite 'JavaCode8.eval()' in Kotlin using smart casts and 'when' expression.
-    """,
-    documentation = doc8(),
-    references = { JavaCode8().eval(expr) })
+//fun todoTask8(expr: Expr): Nothing = TODO(
+//    """
+//        Task 8.
+//        Rewrite 'JavaCode8.eval()' in Kotlin using smart casts and 'when' expression.
+//    """,
+//    documentation = doc8(),
+//    references = { JavaCode8().eval(expr) })
+fun todoTask8(expr: Expr):Int{
+  return  when(expr){
+        is Num->expr.value
+        is Sum-> todoTask8(expr.left)+ todoTask8(expr.right)
+        else->throw IllegalArgumentException("Unknown expression")
+    }
+}
 
